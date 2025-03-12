@@ -1,10 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static UnityEditor.Searcher.SearcherWindow.Alignment;
 
 public class Movement : MonoBehaviour
 {
     public float speed = 5.0f;
+    private bool isFacingRight = true;
 
     private Rigidbody2D rb;
 
@@ -21,5 +23,18 @@ public class Movement : MonoBehaviour
         Vector2 movement = new Vector2(horizontal, vertical);
 
         rb.velocity = movement * speed;
+    }
+
+    private void Flip(float horizontal)
+    {
+        if (horizontal > 0)
+        {
+            transform.rotation = Quaternion.Euler(0, 0, 0);
+        }
+        else if (horizontal < 0)
+        {
+            transform.rotation = Quaternion.Euler(0, 180, 0);
+        }
+
     }
 }
