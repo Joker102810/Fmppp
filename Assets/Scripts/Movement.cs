@@ -17,12 +17,14 @@ public class Movement : MonoBehaviour
 
     void Update()
     {
-        float horizontal = Input.GetAxis("Horizontal");
-        float vertical = Input.GetAxis("Vertical");
+        float horizontal = Input.GetAxisRaw("Horizontal");
+        float vertical = Input.GetAxisRaw("Vertical");
 
         Vector2 movement = new Vector2(horizontal, vertical);
 
         rb.velocity = movement * speed;
+
+        Flip(horizontal);
     }
 
     private void Flip(float horizontal)
