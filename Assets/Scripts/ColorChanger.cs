@@ -10,7 +10,7 @@ public class ColorChanger : MonoBehaviour, IInteractable
 
     private void Start()
     {
-        mat = GetComponent<MeshRenderer>().material;
+        mat = GetComponent<SpriteRenderer>().material;
     }
 
     public string GetDescription()
