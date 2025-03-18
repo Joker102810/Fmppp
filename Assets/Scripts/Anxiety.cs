@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class Anxiety : MonoBehaviour
 {
@@ -9,9 +10,12 @@ public class Anxiety : MonoBehaviour
     public float maxMental = 1000;
     public Slider Slider;
 
+    public Rigidbody2D rb;
+
     // Start is called before the first frame update
     void Start()
     {
+        
         mentality = maxMental;
         Slider.maxValue = maxMental;
         Slider.value = mentality;
@@ -34,13 +38,15 @@ public class Anxiety : MonoBehaviour
 
         if(mentality <= 0)
         {
-            //Destroy(gameObject);
+            SceneManager.LoadScene(1);
         }
     }
 
-    public void mentalDecline()
-    { 
-        mentality = 0; 
+
+    public void IncreaseMentality()
+    {
+        mentality += 3f;
+        Slider.value = mentality;   
     }
 
 
