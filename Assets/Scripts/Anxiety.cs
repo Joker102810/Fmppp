@@ -49,6 +49,11 @@ public class Anxiety : MonoBehaviour
         Slider.value = mentality;   
     }
 
+    public void panic()
+    {
+        mentality -= 1f;
+        Slider.value = mentality;
+    }
 
 }
 
