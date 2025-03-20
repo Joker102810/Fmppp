@@ -51,7 +51,7 @@ public class Anxiety : MonoBehaviour
 
     public void panic()
     {
-        mentality -= 1000f;
+        mentality -= 500f;
         Slider.value = mentality;
     }
 

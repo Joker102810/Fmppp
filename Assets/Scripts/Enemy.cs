@@ -15,12 +15,12 @@ public class Enemy : MonoBehaviour
         Debug.Log("Player found: " + player);
     }
 
-    private void OnCollisionEnter(Collision collision)
+    private void OnCollisionEnter2D(Collision2D collision)
     {
-        Debug.Log("Collision detected!");
-        if (collision.gameObject.CompareTag(PLAYER_TAG))
+        
+        if (collision.gameObject.CompareTag("Player"))
         {
-            Debug.Log("Player collided!");
+            Debug.Log("Collision detected!");
             NpcInteraction();
         }
     }
