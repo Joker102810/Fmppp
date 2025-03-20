@@ -6,30 +6,36 @@ using UnityEngine.UI;
 
 public class Enemy : MonoBehaviour
 {
+    private GameObject player;
+    private const string PLAYER_TAG = "Player";
 
-    GameObject gameobject;
-    // Start is called before the first frame update
     void Start()
     {
-        gameobject = GameObject.Find("Player");
+        player = GameObject.Find(PLAYER_TAG);
+        Debug.Log("Player found: " + player);
     }
 
     private void OnCollisionEnter(Collision collision)
     {
- if (collision.gameObject.tag == "Player")
+        Debug.Log("Collision detected!");
+        if (collision.gameObject.CompareTag(PLAYER_TAG))
         {
+            Debug.Log("Player collided!");
             NpcInteraction();
-            Debug.Log("Collision");
         }
     }
 
     private void NpcInteraction()
     {
-        GameObject Player = GameObject.Find("Player");
-        Anxiety anxiety = Player.GetComponent<Anxiety>();
+        Anxiety anxiety = player.GetComponent<Anxiety>();
         if (anxiety != null)
         {
+            Debug.Log("Panic method called!");
             anxiety.panic();
+        }
+        else
+        {
+            Debug.Log("Anxiety component not found!");
         }
     }
 }
