@@ -18,7 +18,7 @@ public class Tasks : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D collision)
     { 
-        if (GetKeyUp(KeyCode.E))
+       // if (GetKeyUp(KeyCode.E))
         {
         // Get the objects involved in the collision
         GameObject parentObject = collision.gameObject;

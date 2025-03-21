@@ -7,7 +7,7 @@ using UnityEngine.SceneManagement;
 public class Anxiety : MonoBehaviour
 {
     public float mentality;
-    public float maxMental = 1f;
+    public float maxMental = 100f;
     public Slider Slider;
 
     public Rigidbody2D rb;
