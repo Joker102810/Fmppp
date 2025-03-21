@@ -7,7 +7,7 @@ using UnityEngine.SceneManagement;
 public class Anxiety : MonoBehaviour
 {
     public float mentality;
-    public float maxMental = 1000;
+    public float maxMental = 1f;
     public Slider Slider;
 
     public Rigidbody2D rb;
@@ -22,6 +22,7 @@ public class Anxiety : MonoBehaviour
 
         // Call LowerMentality every second
         InvokeRepeating("LowerMentality", 1f, 1f);
+        Debug.Log("mentality is draining");
     }
 
 
@@ -33,8 +34,8 @@ public class Anxiety : MonoBehaviour
 
     public void LowerMentality()
     {
+        Slider.value = mentality;
         mentality -= 0.1f;
-        Slider.value = mentality; 
 
         if(mentality <= 0)
         {
@@ -51,7 +52,7 @@ public class Anxiety : MonoBehaviour
 
     public void panic()
     {
-        mentality -= 500f;
+        mentality -= 1f;
         Slider.value = mentality;
     }
 
