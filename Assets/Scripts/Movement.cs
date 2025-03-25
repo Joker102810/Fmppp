@@ -6,7 +6,7 @@ using static UnityEditor.Searcher.SearcherWindow.Alignment;
 public class Movement : MonoBehaviour
 {
     public float speed = 5.0f;
-    private bool isFacingRight = true;
+    
 
     private Rigidbody2D rb;
 
