@@ -11,6 +11,7 @@ public class Tasks : MonoBehaviour
     bool isCompleted;
     bool PickedUpTrash;
     bool ThrownOutTrash;
+   
 
     
 
@@ -87,5 +88,19 @@ public class Tasks : MonoBehaviour
         }
     }
 
-    
+    void TakeOutTrash()
+    {
+        Collider2D[] hit = Physics2D.OverlapCircleAll(transform.position, radius);
+        {
+            foreach (Collider2D coll in hit)
+            {
+                if (hit != null && !coll.gameObject.CompareTag("item"))
+                {
+                    GameObject.Destroy(coll.gameObject);
+                }
+            }
+        }
+
+    }
+
 }

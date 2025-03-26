@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Detection : MonoBehaviour
 {
-    public float radius = 0.5f;
+    public float radius = 1.5f;
     private GameObject Player;
 
     void Start()
