@@ -61,5 +61,7 @@ public class Anxiety : MonoBehaviour
         mentality += 1.5f;
         Slider.value = mentality;
     }
+
+   
 }
 
