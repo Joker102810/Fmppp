@@ -107,33 +107,33 @@ public class Tasks : MonoBehaviour
     
 
 public class Task
-{
-    // Public properties with getter and private setter
-    public string Trash { get; private set; }
-    public string TakeOutTheTrash { get; private set; }
-    public bool IsComplete { get; private set; }
-    public Action OnComplete { get; private set; }
-
-    // Constructor to initialize properties
-    public Task(string taskName, string description, Action onComplete)
     {
-        Trash = Trash;
-        TakeOutTheTrash = TakeOutTheTrash;
-        IsComplete = false;
-        OnComplete = onComplete;
-    }
+        // Public properties with getter and private setter
+        public string Trash { get; private set; }
+        public string TakeOutTheTrash { get; private set; }
+        public bool IsComplete { get; private set; }
+        public Action OnComplete { get; private set; }
 
-    // Method to mark the task as complete
-    public void CompleteTask()
-    {
-        if (!IsComplete)
+        // Constructor to initialize properties
+        public Task(string taskName, string description, Action onComplete)
         {
-            IsComplete = true;
-            // Invoke the action when the task is completed
-            OnComplete?.Invoke();
+            Trash = Trash;
+            TakeOutTheTrash = TakeOutTheTrash;
+            IsComplete = false;
+            OnComplete = onComplete;
+        }
+
+        // Method to mark the task as complete
+        public void CompleteTask()
+        {
+            if (!IsComplete)
+            {
+                IsComplete = true;
+                // Invoke the action when the task is completed
+                OnComplete?.Invoke();
+            }
         }
     }
-}
 
 
 
