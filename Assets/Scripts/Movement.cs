@@ -13,6 +13,7 @@ public class Movement : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        Animation anim = GetComponent<Animation>();
     }
 
     void Update()
