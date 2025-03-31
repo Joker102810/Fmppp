@@ -7,6 +7,7 @@ TagManager:
   - Npc
   - Enemy
   - Enemy1
+  - item
   layers:
   - Default
   - TransparentFX

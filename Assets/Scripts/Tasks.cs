@@ -62,7 +62,7 @@ public class Tasks : MonoBehaviour
             if (hit != null && !coll.gameObject.CompareTag("Player"))
             {
                 {
-                    interact.enabled = true;
+                    
                     //Debug.Log("Hit something: " + coll.gameObject.name);
                     if (Input.GetKeyDown(KeyCode.E))
                     {
