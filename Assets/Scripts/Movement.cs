@@ -6,14 +6,14 @@ using static UnityEditor.Searcher.SearcherWindow.Alignment;
 public class Movement : MonoBehaviour
 {
     public float speed = 5.0f;
-    
 
+    private PlayerAnimationController playerAnimationController;
     private Rigidbody2D rb;
 
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-        Animation anim = GetComponent<Animation>();
+        playerAnimationController = GetComponent<PlayerAnimationController>(); // Get the PlayerAnimationController script
     }
 
     void Update()
@@ -26,19 +26,35 @@ public class Movement : MonoBehaviour
         rb.velocity = movement * speed;
 
         Flip(horizontal);
+
+        // Play animations based on horizontal movement
+        if (horizontal != 0)
+        {
+            if (horizontal > 0)
+            {
+                playerAnimationController.PlayAnimation("WalkRight");
+            }
+            else
+            {
+                playerAnimationController.PlayAnimation("WalkLeft");
+            }
+        }
+        else
+        {
+            playerAnimationController.StopAnimation("Walk"); // Stop the walk animation when not moving horizontally
+        }
     }
 
     private void Flip(float horizontal)
     {
-        if (horizontal > 0)
+        if (horizontal < 0)
         {
             transform.rotation = Quaternion.Euler(0, 0, 0);
         }
-        else if (horizontal < 0)
+        else if (horizontal > 0)
         {
             transform.rotation = Quaternion.Euler(0, 180, 0);
         }
-
     }
-
+   
 }
