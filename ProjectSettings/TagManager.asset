@@ -8,6 +8,7 @@ TagManager:
   - Enemy
   - Enemy1
   - item
+  - Bin
   layers:
   - Default
   - TransparentFX

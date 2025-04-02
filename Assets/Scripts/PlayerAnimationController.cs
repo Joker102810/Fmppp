@@ -4,38 +4,39 @@ using UnityEngine;
 
 public class PlayerAnimationController : MonoBehaviour
 {
-    public Animator animator; // Reference to the Animator component
 
-    private int direction = 0; // Current direction (0 = idle, 1 = up, 2 = down, 3 = left, 4 = right)
+    private Animator animator;
+    private GameObject player;
+
+    void Start()
+    {
+        player = GetComponent<GameObject>();
+        animator = GetComponent<Animator>();
+    }
+
+    // Call this function to play an animation
+    public void PlayAnimation(string animationName)
+    {
+        animator.Play(animationName);
+    }
+
+    // Call this function to stop an animation
+    public void StopAnimation(string animationName)
+    {
+        animator.StopPlayback();
+    }
+
+    // Call this function to transition to a new state
+    public void TransitionToState(string stateName)
+    {
+        animator.SetTrigger(stateName);
+    }
 
     void Update()
     {
-        // Determine the direction the player is moving
-        float horizontalInput = Input.GetAxis("Horizontal");
-        float verticalInput = Input.GetAxis("Vertical");
+        
 
-        if (horizontalInput > 0)
-        {
-            direction = 3; // Moving right
-        }
-        else if (horizontalInput < 0)
-        {
-            direction = 4; // Moving left
-        }
-        else if (verticalInput > 0)
-        {
-            direction = 1; // Moving up
-        }
-        else if (verticalInput < 0)
-        {
-            direction = 2; // Moving down
-        }
-        else
-        {
-            direction = 0; // Idle
-        }
 
-        // Set the animation based on the direction
-        animator.SetInteger("Direction", direction);
     }
+
 }
