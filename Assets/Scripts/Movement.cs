@@ -32,29 +32,45 @@ public class Movement : MonoBehaviour
         {
             if (horizontal > 0)
             {
-                playerAnimationController.PlayAnimation("WalkRight");
+                transform.rotation = Quaternion.Euler(0, 180, 0);
+                playerAnimationController.PlayAnimation("WalkLeft");
+                
             }
             else
             {
+                transform.rotation = Quaternion.Euler(0, 0, 0);
                 playerAnimationController.PlayAnimation("WalkLeft");
             }
         }
         else
         {
-            playerAnimationController.StopAnimation("Walk"); // Stop the walk animation when not moving horizontally
+            playerAnimationController.PlayAnimation("Walk"); // Stop the walk animation when not moving horizontally
         }
     }
 
     private void Flip(float horizontal)
     {
-        if (horizontal < 0)
+        /*if (horizontal < 0)
         {
             transform.rotation = Quaternion.Euler(0, 0, 0);
         }
         else if (horizontal > 0)
         {
-            transform.rotation = Quaternion.Euler(0, 180, 0);
-        }
+            transform.rotation = Quaternion.Euler(0, 180, 0);   
+        }*/
+
+        
     }
-   
+
+    private void Flips(float vertical)
+    {
+        /*if (Vertical < 0)
+        {
+            transform.rotation = Quaternion.Euler(0, 0, 0);
+        }
+        else if (Vertical > 0)
+        {
+            transform.rotation = Quaternion.Euler(180, , 0);   
+        }*/
+    }
 }
