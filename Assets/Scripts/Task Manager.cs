@@ -7,27 +7,79 @@ using UnityEngine.SceneManagement;
 
 public class TaskManager : MonoBehaviour
 {
-    // Start is called before the first frame update
+    Canvas interact;
+    public float radius;
+    bool isCompleted;
+    bool PickedUpTrash;
+    bool ThrownOutTrash;
+
+
+
+
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        // Update code here
+        TrashCan();
+
+
     }
 
-    void OnCollisionEnter2D(Collision2D collision)
+    void OnDrawGizmos()
     {
-        if (collision.gameObject.CompareTag("Trash"))
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(transform.position, radius);
+    }
+
+
+
+    void Unparenting()
+    {
+        Transform parent = transform.parent;
+        if (transform.parent != null)
         {
-            SceneManager.LoadScene("Minigame1");
-            Debug.Log("Trash detected!");
+            transform.parent = null;
+            Debug.Log("Object is no longer a child of " + parent.name);
         }
     }
+
+    void Trash()
+    {
+        Debug.Log("Picled up trash!");
+
+    }
+
+    public void TrashCan()
+    {
+        Collider2D[] hit = Physics2D.OverlapCircleAll(transform.position, radius);
+
+        foreach (Collider2D coll in hit)
+        {
+            if (hit != null && coll.gameObject.CompareTag("Trash"))
+            {
+                {
+
+                    
+                    if (Input.GetKeyDown(KeyCode.E))
+                    {
+                        SceneManager.LoadScene("Minigame1");
+                    }
+                    if (Input.GetKeyDown(KeyCode.E) && (SceneManager.GetActiveScene().name == "Minigame1"))
+                    {
+                        SceneManager.LoadScene("Main Scene");
+
+                    }
+
+                }
+            }
+        }
+    }
+
 }
-   
+
 
 

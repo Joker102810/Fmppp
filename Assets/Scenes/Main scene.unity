@@ -1393,6 +1393,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 40b0972eb02ddf948b24a55d9b4634a4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  radius: 1.5
 --- !u!1 &1540106731
 GameObject:
   m_ObjectHideFlags: 0
@@ -2191,6 +2192,22 @@ PrefabInstance:
     - target: {fileID: 5704864142939707683, guid: af29d537470550940b691bc923e7ab1e, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8338470713549173713, guid: af29d537470550940b691bc923e7ab1e, type: 3}
+      propertyPath: m_Size.x
+      value: 0.8880468
+      objectReference: {fileID: 0}
+    - target: {fileID: 8338470713549173713, guid: af29d537470550940b691bc923e7ab1e, type: 3}
+      propertyPath: m_Size.y
+      value: 1.5086017
+      objectReference: {fileID: 0}
+    - target: {fileID: 8338470713549173713, guid: af29d537470550940b691bc923e7ab1e, type: 3}
+      propertyPath: m_Offset.x
+      value: -0.03853869
+      objectReference: {fileID: 0}
+    - target: {fileID: 8338470713549173713, guid: af29d537470550940b691bc923e7ab1e, type: 3}
+      propertyPath: m_Offset.y
+      value: 0.022625305
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
