@@ -41,7 +41,7 @@ public class Movement : MonoBehaviour
         }
         else
         {
-            playerAnimationController.PlayAnimation("Walk"); // Stop the walk animation when not moving horizontally
+            playerAnimationController.StopAnimation("Walk"); // Stop the walk animation when not moving horizontally
         }
     }
 
