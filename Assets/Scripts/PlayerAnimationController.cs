@@ -17,7 +17,7 @@ public class PlayerAnimationController : MonoBehaviour
     // Call this function to play an animation
     public void PlayAnimation(string animationName)
     {
-        animator.Play(animationName);
+        //animator.Play(animationName);
     }
 
     // Call this function to stop an animation

@@ -9,6 +9,7 @@ TagManager:
   - Enemy1
   - item
   - Bin
+  - Trash
   layers:
   - Default
   - TransparentFX
