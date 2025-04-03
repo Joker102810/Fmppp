@@ -25,7 +25,7 @@ public class TaskManager : MonoBehaviour
     void Update()
     {
         TrashCan();
-
+        ThrowOutTrash();
 
     }
 
@@ -69,17 +69,20 @@ public class TaskManager : MonoBehaviour
                         SceneManager.LoadScene("Minigame1");
                         Debug.Log("Minigame1");
                     }
-                    if (Input.GetKeyDown(KeyCode.E) && (SceneManager.GetActiveScene().name == "Minigame1"))
-                    {
-                        SceneManager.LoadScene("Main Scene");
-                        Debug.Log("Back to Main Scene");
-                    }
-
                 }
             }
         }
     }
+    
+    void ThrowOutTrash()
+    {
+        if (Input.GetKeyDown(KeyCode.E) && (SceneManager.GetActiveScene().name == "Minigame1"))
+        {
+            SceneManager.LoadScene("Main Scene");
+            Debug.Log("Back to Main Scene");
+        }
 
+    }
 }
 
 

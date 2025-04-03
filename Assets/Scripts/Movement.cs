@@ -30,7 +30,7 @@ public class Movement : MonoBehaviour
         // Play animations based on horizontal movement
         if (horizontal != 0)
         {
-            if (horizontal > 0)
+            if (horizontal < 0)
             {
                 transform.rotation = Quaternion.Euler(0, 180, 0);
                 playerAnimationController.PlayAnimation("WalkLeft");
@@ -44,7 +44,7 @@ public class Movement : MonoBehaviour
         }
         else
         {
-            playerAnimationController.PlayAnimation("Walk"); // Stop the walk animation when not moving horizontally
+            playerAnimationController.StopAnimation("Walk"); // Stop the walk animation when not moving horizontally
         }
     }
 
