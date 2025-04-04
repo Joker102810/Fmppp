@@ -38,13 +38,12 @@ public class Movement : MonoBehaviour
             }
             else
             {
-                transform.rotation = Quaternion.Euler(0, 0, 0);
                 playerAnimationController.PlayAnimation("WalkLeft");
             }
         }
         else
         {
-            playerAnimationController.StopAnimation("Walk"); // Stop the walk animation when not moving horizontally
+            playerAnimationController.PlayAnimation("Walk"); // Stop the walk animation when not moving horizontally
         }
     }
 
