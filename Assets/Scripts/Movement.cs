@@ -32,12 +32,13 @@ public class Movement : MonoBehaviour
         {
             if (horizontal < 0)
             {
-                transform.rotation = Quaternion.Euler(0, 180, 0);
+                transform.rotation = Quaternion.Euler(0, 0, 0);
                 playerAnimationController.PlayAnimation("WalkLeft");
 
             }
             else
             {
+                transform.rotation = Quaternion.Euler(0, 180, 0);
                 playerAnimationController.PlayAnimation("WalkLeft");
             }
         }
