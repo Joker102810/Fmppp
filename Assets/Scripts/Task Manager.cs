@@ -25,7 +25,7 @@ public class TaskManager : MonoBehaviour
     void Update()
     {
         TrashCan();
-        ThrowOutTrash();
+        TrashDone();
 
     }
 
@@ -74,15 +74,24 @@ public class TaskManager : MonoBehaviour
         }
     }
     
-    void ThrowOutTrash()
+    public void TrashDone()
     {
-        if (Input.GetKeyDown(KeyCode.E) && (SceneManager.GetActiveScene().name == "Minigame1"))
+        Collider2D[] hit = Physics2D.OverlapCircleAll(transform.position, radius);
+
+        foreach (Collider2D coll in hit)
         {
-            SceneManager.LoadScene("Main Scene");
-            Debug.Log("Back to Main Scene");
+            if (hit != null && coll.gameObject.CompareTag("Trash"))
+            {
+                if (Input.GetKeyDown(KeyCode.E) && (SceneManager.GetActiveScene().name == "Minigame1"))
+                {
+                    SceneManager.LoadScene("Main Scene");
+                    Debug.Log("Back to Main Scene");
+                }
+            }
         }
 
     }
+      
 }
 
 
