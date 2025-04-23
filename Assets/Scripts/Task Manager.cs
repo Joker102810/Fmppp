@@ -86,8 +86,8 @@ public class TaskManager : MonoBehaviour
             {
                 if (Input.GetKeyDown(KeyCode.E) && (SceneManager.GetActiveScene().name == "Minigame1"))
                 {
-                    interact.gameObject.SetActive(true);                 
-                    Invoke("MainScene", 3f);
+                    interact.gameObject.SetActive(true);
+                    SceneManager.LoadScene(0);
                 }
             }
         }
@@ -96,7 +96,7 @@ public class TaskManager : MonoBehaviour
 
     private void MainScene()
     {
-        SceneManager.LoadScene("Main Scene");
+        SceneManager.LoadScene(0);
         Debug.Log("Back to Main Scene");
     }
       
