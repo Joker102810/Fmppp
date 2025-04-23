@@ -12,9 +12,10 @@ public class Tasks : MonoBehaviour
     bool isCompleted;
     bool PickedUpTrash;
     bool ThrownOutTrash;
-   
 
-    
+    public float detectionRange = 2.0f; 
+    public GameObject interactionUI; 
+
 
     void Start()
     {
@@ -25,8 +26,19 @@ public class Tasks : MonoBehaviour
     void Update()
     {
         PickUp();
+
         
-       
+        Collider[] hits = Physics.OverlapSphere(transform.position, detectionRange);
+        foreach (Collider hit in hits)
+        {
+            
+            if (hit.gameObject.CompareTag("Item"))
+            {
+                
+                interactionUI.SetActive(true);
+            }
+        }
+
     }
 
     void OnDrawGizmos()

@@ -3,11 +3,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
+
 
 
 public class TaskManager : MonoBehaviour
 {
-    Canvas interact;
+    public Canvas interact;
     public float radius;
     bool isCompleted;
     bool PickedUpTrash;
@@ -18,7 +20,7 @@ public class TaskManager : MonoBehaviour
 
     void Start()
     {
-
+        interact.gameObject.SetActive(false);
     }
 
     // Update is called once per frame
@@ -84,12 +86,18 @@ public class TaskManager : MonoBehaviour
             {
                 if (Input.GetKeyDown(KeyCode.E) && (SceneManager.GetActiveScene().name == "Minigame1"))
                 {
-                    SceneManager.LoadScene("Main Scene");
-                    Debug.Log("Back to Main Scene");
+                    interact.gameObject.SetActive(true);                 
+                    Invoke("MainScene", 3f);
                 }
             }
         }
 
+    }
+
+    private void MainScene()
+    {
+        SceneManager.LoadScene("Main Scene");
+        Debug.Log("Back to Main Scene");
     }
       
 }
