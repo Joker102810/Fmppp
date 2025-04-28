@@ -26,7 +26,7 @@ public class TaskManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        TrashCan();
+        
         TrashDone();
 
     }
@@ -55,26 +55,7 @@ public class TaskManager : MonoBehaviour
 
     }
 
-    public void TrashCan()
-    {
-        Collider2D[] hit = Physics2D.OverlapCircleAll(transform.position, radius);
-
-        foreach (Collider2D coll in hit)
-        {
-            if (hit != null && coll.gameObject.CompareTag("Trash"))
-            {
-                {
-
-                    
-                    if (Input.GetKeyDown(KeyCode.E))
-                    {
-                        SceneManager.LoadScene("Minigame1");
-                        Debug.Log("Minigame1");
-                    }
-                }
-            }
-        }
-    }
+   
     
     public void TrashDone()
     {
@@ -94,7 +75,7 @@ public class TaskManager : MonoBehaviour
 
     }
 
-    private void MainScene()
+    private void MainScene() 
     {
         SceneManager.LoadScene(0);
         Debug.Log("Back to Main Scene");

@@ -9,11 +9,12 @@ public class Enemy : MonoBehaviour
     private GameObject player;
     private const string PLAYER_TAG = "Player";
 
-   
-    Vector3 pointA = new Vector3(39.57f, -3.07f, 0f);
-    Vector3 pointB = new Vector3(55.03f, -3.07f, 0);
 
-   
+    Vector3 pointA = new Vector3(59.2f, -4.1f, 0);
+    Vector3 pointB = new Vector3(35.1f, -4.1f, 0);
+
+
+
     public float speed = 1f;
 
     

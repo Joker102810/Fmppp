@@ -7,7 +7,9 @@ using UnityEngine.UI;
 
 public class Tasks : MonoBehaviour
 {
-    Canvas interact;
+    public Canvas interact;
+    public Canvas interact2;
+
     public float radius;
     bool isCompleted;
     bool PickedUpTrash;
@@ -19,7 +21,9 @@ public class Tasks : MonoBehaviour
 
     void Start()
     {
-        
+        interact.gameObject.SetActive(true);
+        interact2.gameObject.SetActive(false);
+
     }
 
     // Update is called once per frame
@@ -35,7 +39,7 @@ public class Tasks : MonoBehaviour
             if (hit.gameObject.CompareTag("Item"))
             {
                 
-                interactionUI.SetActive(true);
+                
             }
         }
 
@@ -86,6 +90,10 @@ public class Tasks : MonoBehaviour
                         // Set the parent of the child object
                         childObject.transform.SetParent(parentObject.transform);
                         Debug.Log("Object is now a child of " + parentObject.name);
+                        interact.gameObject.SetActive(false);
+                        interact2.gameObject.SetActive(true);
+
+
                     }
                     if (Input.GetKeyDown(KeyCode.Q))
                     {
