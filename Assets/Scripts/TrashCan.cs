@@ -10,7 +10,7 @@ public class TrashCan : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        TrashAction();
     }
 
     // Update is called once per frame
@@ -32,7 +32,7 @@ public class TrashCan : MonoBehaviour
 
                     if (Input.GetKeyDown(KeyCode.E))
                     {
-                        SceneManager.LoadScene("Minigame1");
+                        SceneManager.LoadScene("Main Scene");
                         Debug.Log("Minigame1");
                     }
                 }
