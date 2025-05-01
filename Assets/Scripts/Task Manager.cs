@@ -28,7 +28,7 @@ public class TaskManager : MonoBehaviour
     {
         
         TrashDone();
-
+        TrashAction();
     }
 
     void OnDrawGizmos()
@@ -55,15 +55,35 @@ public class TaskManager : MonoBehaviour
 
     }
 
-   
-    
-    public void TrashDone()
+    public void TrashAction()
     {
         Collider2D[] hit = Physics2D.OverlapCircleAll(transform.position, radius);
 
         foreach (Collider2D coll in hit)
         {
             if (hit != null && coll.gameObject.CompareTag("Trash"))
+            {
+                {
+
+
+                    if (Input.GetKeyDown(KeyCode.E))
+                    {
+                        SceneManager.LoadScene("Minigame1");
+                        Debug.Log("Minigame1");
+                    }
+                }
+            }
+        }
+    }
+
+
+    public void TrashDone()
+    {
+        Collider2D[] hit = Physics2D.OverlapCircleAll(transform.position, radius);
+
+        foreach (Collider2D coll in hit)
+        {
+            if (hit != null && coll.gameObject.CompareTag("Bin"))
             {
                 if (Input.GetKeyDown(KeyCode.E) && (SceneManager.GetActiveScene().name == "Minigame1"))
                 {

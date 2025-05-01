@@ -75,7 +75,7 @@ public class Tasks : MonoBehaviour
 
         foreach (Collider2D coll in hit)
         {
-            if (hit != null && !coll.gameObject.CompareTag("Player"))
+            if (hit != null && coll.gameObject.CompareTag("Trash"))
             {
                 {
                     
