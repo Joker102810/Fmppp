@@ -8,6 +8,9 @@ public class OpenDiolouge : MonoBehaviour
 {
     //this is the diolouge script that opends on start
 
+    bool talking;
+    bool notTalking;
+
     public Text dialogueText;
     public GameObject Pannel;
 
@@ -32,6 +35,7 @@ public class OpenDiolouge : MonoBehaviour
     }
     void Update()
     {
+        noMovement();
         if (dialogueActive && Input.GetKeyDown(KeyCode.Space))
         {
             if (isTyping)
@@ -51,6 +55,7 @@ public class OpenDiolouge : MonoBehaviour
 
     public void StartDialogue()
     {
+        talking = true;
         // this activateas the dialogue box and starts the first line
         // pressT.SetValue(true);
         Pannel.SetActive(true);
@@ -91,12 +96,32 @@ public class OpenDiolouge : MonoBehaviour
 
     void EndDialogue()
     {
+        notTalking = true;
+        talking = false;
         Pannel.SetActive(false);
         dialogueActive = false;
+        
         //fullSprite.SetActive(false);
 
-       // Choices.SetActive(true);
-        //fuuuuuckkckk this script took a long ass time- i'm just gunna copy the video next time 
+        // Choices.SetActive(true);
 
+
+    }
+
+    private void noMovement()
+    {
+        if (talking == true)
+        {
+     
+            Debug.Log("Talking");
+           //Time.timeScale = 0.001f;
+        }
+        if (notTalking == true)
+        {
+     
+          
+            Debug.Log("Not Talking");
+            //Time.timeScale = 1f;
+        }
     }
 }

@@ -6,10 +6,11 @@ using UnityEngine.SceneManagement;
 public class TrashCan : MonoBehaviour
 {
     public float radius;
-
+   
     // Start is called before the first frame update
     void Start()
     {
+        
         TrashAction();
     }
 
@@ -34,6 +35,12 @@ public class TrashCan : MonoBehaviour
                     {
                         SceneManager.LoadScene("Main Scene");
                         Debug.Log("Minigame1");
+
+                        GameObject trashObject = GameObject.FindWithTag("Trash");
+                        if (trashObject != null)
+                        {
+                            Destroy(trashObject);
+                        }
                     }
                 }
             }

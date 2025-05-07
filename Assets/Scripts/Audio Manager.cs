@@ -8,12 +8,12 @@ public class AudioManager : MonoBehaviour
     [SerializeField] AudioSource SFXSource;
 
     public AudioClip background;
-    public AudioClip Jump;
-    public AudioClip Death;
-    public AudioClip Stage;
-    public AudioClip button;
-    public AudioClip lever;
-    public AudioClip platform;
+    public AudioClip walking;
+    public AudioClip pickup;
+    public AudioClip drop;
+    public AudioClip door;
+    public AudioClip bin;
+    public AudioClip npc;
 
     public static AudioManager instance;
     private void Awake()
