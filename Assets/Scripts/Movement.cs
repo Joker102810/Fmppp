@@ -27,24 +27,34 @@ public class Movement : MonoBehaviour
 
         Flip(horizontal);
 
-        // Play animations based on horizontal movement
+        // Play animations based on horizontal and vertical movement
         if (horizontal != 0)
         {
             if (horizontal < 0)
             {
                 transform.rotation = Quaternion.Euler(0, 0, 0);
                 playerAnimationController.PlayAnimation("WalkLeft");
-
             }
             else
             {
                 transform.rotation = Quaternion.Euler(0, 180, 0);
-                playerAnimationController.PlayAnimation("WalkLeft");
+                playerAnimationController.PlayAnimation("WalkRight"); // Corrected animation name
+            }
+        }
+        else if (vertical != 0)
+        {
+            if (vertical < 0)
+            {
+                playerAnimationController.PlayAnimation("Walk forward");
+            }
+            else
+            {
+                playerAnimationController.PlayAnimation("WalkBack");
             }
         }
         else
         {
-            playerAnimationController.PlayAnimation("Walk"); // Stop the walk animation when not moving horizontally
+            playerAnimationController.PlayAnimation("Idle"); // Play idle animation when not moving
         }
     }
 
