@@ -33,7 +33,7 @@ public class TrashCan : MonoBehaviour
 
                     if (Input.GetKeyDown(KeyCode.E))
                     {
-                        SceneManager.LoadScene("Main Scene");
+                        SceneManager.LoadScene("Main Scene2");
                         Debug.Log("Minigame1");
 
                         GameObject trashObject = GameObject.FindWithTag("Trash");
