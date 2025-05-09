@@ -13,6 +13,28 @@ public class l : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
+
+        float horizontal = Input.GetAxisRaw("Horizontal");
+        float vertical = Input.GetAxisRaw("Vertical");
+
+        Vector2 movement = new Vector2(horizontal, vertical);
+
+
+        Flip();
+    }
+
+    private void Flip(float horizontal)
+    {
+        if (horizontal < 0)
+        {
+            transform.rotation = Quaternion.Euler(0, 0, 0);
+        }
+        else if (horizontal > 0)
+        {
+            transform.rotation = Quaternion.Euler(0, 180, 0);   
+        }
+
+
     }
 }
