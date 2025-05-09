@@ -905,7 +905,7 @@ MonoBehaviour:
   dialogueText: {fileID: 1430265399}
   Pannel: {fileID: 293263462}
   dialogueLines:
-  - Sighhh...
+  - Sighhh ...  (space to continue)
   - I have too much work to do
   - I hope I can do it all
   - So much...
@@ -913,6 +913,13 @@ MonoBehaviour:
   - Hmm....
   - I know!
   - I'll start with the the trash
+  - W,A,S,D to move
+  - '''E'' to pickup '
+  - '''Q'' to Drop'
+  - At the top right you will see your mental bar. It represents your current mental
+    state, It decreases over time.
+  - Doing task will increase your mental state.
+  - If your mental reaches 0 you will faint and will have to start over.
   textSpeed: 0.05
 --- !u!114 &293263465
 MonoBehaviour:
