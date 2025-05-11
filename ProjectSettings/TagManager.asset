@@ -14,6 +14,7 @@ TagManager:
   - DoorIn
   - DoorOut
   - Pickup
+  - Clothes
   layers:
   - Default
   - TransparentFX
