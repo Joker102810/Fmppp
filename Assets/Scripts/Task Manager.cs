@@ -29,6 +29,7 @@ public class TaskManager : MonoBehaviour
         
         TrashDone();
         TrashAction();
+        FridgeAction();
     }
 
     void OnDrawGizmos()
@@ -70,6 +71,27 @@ public class TaskManager : MonoBehaviour
                     {
                         SceneManager.LoadScene("Minigame1");
                         Debug.Log("Minigame1");
+                    }
+                }
+            }
+        }
+    }
+
+    public void FridgeAction()
+    {
+        Collider2D[] hit = Physics2D.OverlapCircleAll(transform.position, radius);
+
+        foreach (Collider2D coll in hit)
+        {
+            if (hit != null && coll.gameObject.CompareTag("Fridge"))
+            {
+                {
+
+
+                    if (Input.GetKeyDown(KeyCode.E))
+                    {
+                        SceneManager.LoadScene("Minigame2");
+                        Debug.Log("Minigame2");
                     }
                 }
             }

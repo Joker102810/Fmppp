@@ -15,6 +15,7 @@ TagManager:
   - DoorOut
   - Pickup
   - Clothes
+  - Fridge
   layers:
   - Default
   - TransparentFX

@@ -5,10 +5,10 @@ using UnityEngine.SceneManagement;
 
 public class cleaning : MonoBehaviour
 {
-    public string targetTag; // The tag of the objects to destroy
-    public string nextSceneName; // The name of the next scene to load
+    public string targetTag;
+    public string nextSceneName; 
 
-    private int objectsLeft; // The number of objects with the target tag left in the scene
+    private int objectsLeft; 
 
     void Start()
     {
@@ -23,14 +23,14 @@ public class cleaning : MonoBehaviour
         if (Input.GetMouseButtonDown(0))
         {
             // Get the object under the cursor position
-            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-            RaycastHit hit;
+            Vector2 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            RaycastHit2D hit = Physics2D.Raycast(mousePosition, Vector2.zero);
 
             // Check if the ray hits an object with the target tag
-            if (Physics.Raycast(ray, out hit) && hit.transform.CompareTag(targetTag))
+            if (hit.collider != null && hit.collider.CompareTag(targetTag))
             {
                 // Destroy the object
-                Destroy(hit.transform.gameObject);
+                Destroy(hit.collider.gameObject);
                 Debug.Log("Object destroyed!");
                 objectsLeft--;
                 Debug.Log("Objects left: " + objectsLeft);
@@ -39,7 +39,7 @@ public class cleaning : MonoBehaviour
                 if (objectsLeft == 0)
                 {
                     // Load the next scene
-                    SceneManager.LoadScene(nextSceneName);
+                    SceneManager.LoadScene("GoodEnd");
                     Debug.Log("Loading next scene...");
                 }
             }
