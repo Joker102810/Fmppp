@@ -5,6 +5,8 @@ using static UnityEditor.Searcher.SearcherWindow.Alignment;
 
 public class Movement : MonoBehaviour
 {
+    Animator animator;
+
     public float speed = 5.0f;
 
     private PlayerAnimationController playerAnimationController;
@@ -28,34 +30,34 @@ public class Movement : MonoBehaviour
         Flip(horizontal);
 
         // Play animations based on horizontal and vertical movement
-        if (horizontal != 0)
+        if (vertical > 0)
         {
-            if (horizontal < 0)
-            {
-                transform.rotation = Quaternion.Euler(0, 0, 0);
-                playerAnimationController.PlayAnimation("WalkLeft");
-            }
-            else
-            {
-                transform.rotation = Quaternion.Euler(0, 180, 0);
-                playerAnimationController.PlayAnimation("WalkRight"); // Corrected animation name
-            }
+            playerAnimationController.TransitionToState("Backwards");
+            playerAnimationController.StopAnimation("Idle");
+            playerAnimationController.StopAnimation("Forwards");
         }
-        else if (vertical != 0)
+        else if (vertical < 0 || horizontal != 0)
         {
-            if (vertical < 0)
-            {
-                playerAnimationController.PlayAnimation("Walk forward");
-            }
-            else
-            {
-                playerAnimationController.PlayAnimation("WalkBack");
-            }
+            playerAnimationController.TransitionToState("Forwards");
+            playerAnimationController.StopAnimation("Backwards");
+            playerAnimationController.StopAnimation("Idle");
         }
         else
         {
-            playerAnimationController.PlayAnimation("Idle"); // Play idle animation when not moving
+            playerAnimationController.TransitionToState("Idle");
+            playerAnimationController.StopAnimation("Forwards");
+            playerAnimationController.StopAnimation("Backwards");
         }
+    }
+
+    public void StopAnimation(string animationName)
+    {
+        animator.StopPlayback();
+    }
+
+    public void SetTrigger(string triggerName)
+    {
+        animator.SetTrigger(triggerName);
     }
 
     private void Flip(float horizontal)
@@ -83,4 +85,8 @@ public class Movement : MonoBehaviour
             transform.rotation = Quaternion.Euler(180, , 0);   
         }*/
     }
+
+
+
+
 }

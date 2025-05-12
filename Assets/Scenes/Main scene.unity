@@ -917,7 +917,8 @@ MonoBehaviour:
   - '''E'' to pickup '
   - '''Q'' to Drop'
   - At the top right you will see your mental bar. It represents your current mental
-    state, It decreases over time.
+    state
+  - It decreases over time.
   - Doing task will increase your mental state.
   - If your mental reaches 0 you will faint and will have to start over.
   textSpeed: 0.05
