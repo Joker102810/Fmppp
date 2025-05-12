@@ -5,7 +5,7 @@ using UnityEngine;
 public class PlayerAnimationController : MonoBehaviour
 {
 
-    private Animator animator;
+    public Animator animator;
     private GameObject player;
 
     void Start()

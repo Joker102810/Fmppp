@@ -6925,6 +6925,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   triggerCollider: {fileID: 480225291}
   targetPosition: {fileID: 929589155}
+--- !u!95 &1852804767 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 4001837040981874493, guid: af29d537470550940b691bc923e7ab1e, type: 3}
+  m_PrefabInstance: {fileID: 6493537752782526696}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1870100268
 GameObject:
   m_ObjectHideFlags: 0
@@ -7825,6 +7830,14 @@ PrefabInstance:
       value: Player
       objectReference: {fileID: 0}
     - target: {fileID: 2586425033299838657, guid: af29d537470550940b691bc923e7ab1e, type: 3}
+      propertyPath: animator
+      value: 
+      objectReference: {fileID: 1852804767}
+    - target: {fileID: 2586425033299838657, guid: af29d537470550940b691bc923e7ab1e, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4001837040981874493, guid: af29d537470550940b691bc923e7ab1e, type: 3}
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}

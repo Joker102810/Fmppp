@@ -5,17 +5,14 @@ using static UnityEditor.Searcher.SearcherWindow.Alignment;
 
 public class Movement : MonoBehaviour
 {
-    Animator animator;
-
     public float speed = 5.0f;
-
-    private PlayerAnimationController playerAnimationController;
     private Rigidbody2D rb;
+    private PlayerAnimationController playerAnimationController;
 
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-        playerAnimationController = GetComponent<PlayerAnimationController>(); // Get the PlayerAnimationController script
+        playerAnimationController = GetComponent<PlayerAnimationController>();
     }
 
     void Update()
@@ -29,35 +26,27 @@ public class Movement : MonoBehaviour
 
         Flip(horizontal);
 
-        // Play animations based on horizontal and vertical movement
+        // Animation logic
         if (vertical > 0)
         {
             playerAnimationController.TransitionToState("Backwards");
-            playerAnimationController.StopAnimation("Idle");
-            playerAnimationController.StopAnimation("Forwards");
         }
-        else if (vertical < 0 || horizontal != 0)
+        else if (vertical < 0)
         {
-            playerAnimationController.TransitionToState("Forwards");
-            playerAnimationController.StopAnimation("Backwards");
-            playerAnimationController.StopAnimation("Idle");
+            playerAnimationController.TransitionToState("Forward");
+        }
+        else if (horizontal > 0)
+        {
+            playerAnimationController.TransitionToState("Right");
+        }
+        else if (horizontal < 0)
+        {
+            playerAnimationController.TransitionToState("Left");
         }
         else
         {
             playerAnimationController.TransitionToState("Idle");
-            playerAnimationController.StopAnimation("Forwards");
-            playerAnimationController.StopAnimation("Backwards");
         }
-    }
-
-    public void StopAnimation(string animationName)
-    {
-        animator.StopPlayback();
-    }
-
-    public void SetTrigger(string triggerName)
-    {
-        animator.SetTrigger(triggerName);
     }
 
     private void Flip(float horizontal)
